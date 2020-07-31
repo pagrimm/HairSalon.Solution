@@ -15,40 +15,52 @@ namespace HairSalon.Controllers
       _db = db;
     }
 
-    [HttpGet("/stylists")]
     public ActionResult Index()
     {
-      
+      List<Stylist> allStylists = _db.Stylists.ToList();
+      return View(allStylists);
     }
 
-    [HttpGet("/stylists/new")]
     public ActionResult New()
     {
       return View();
     }
 
-    [HttpPost("/stylists")]
-    public ActionResult New(Cuisine cuisine)
+    [HttpPost]
+    public ActionResult New(Stylist stylist)
     {
-      
+      _db.Stylists.Add(stylist);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
 
-    [HttpGet("/stylists/{id}")]
     public ActionResult Show(int id)
     {
-      
+      Stylist model = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
+      return View(model);
     }
 
-    [HttpGet("/stylists/{id}/edit")]
     public ActionResult Edit(int id)
     {
-      
+      Stylist model = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
+      return View(model);
     }
 
-    [HttpPost("/stylists/{id}")]
+    [HttpPost]
+    public ActionResult Edit(Stylist stylist)
+    {
+      _db.Entry(stylist).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost]
     public ActionResult Destroy(int id)
     {
-      
+      Stylist thisStylist = _db.Clients.FirstOrDefault(stylist => stylist.StylistId == id);
+      _db.Stylists.Remove(thisStylist);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
   }
 }
