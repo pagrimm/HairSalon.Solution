@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@using HairSalon.Models;
+@model HairSalon.Models.Stylist;
+
+<section class="card mb-3">
+  <div class="card-header">
+    <div class="cardListName">Stylist: @Model.Name</div>
+    <div class="cardListButton">
+      <form action="/stylists/@Model.StylistId" method="post">
+        <button type="submit" class="btn btn-danger">Remove Stylist</button>
+      </form>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="card-text">
+      <h5 class="card-title">Client List</h5>
+      @Html.Partial("ClientList", Model)
+    </div>
+  </div>
+</section>

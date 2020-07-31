@@ -1,0 +1,11 @@
+@using HairSalon.Models;
+@model HairSalon.Models.Stylist;
+
+@if (Model.Clients.Count == 0)
+{
+  <p>This stylist has no clients to display.</p>
+}
+@foreach (Client client in Model.Clients)
+{
+  <div><a href="/clients/@client.ClientId">@client.Name</a></div>
+}

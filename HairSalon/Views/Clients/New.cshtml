@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model HairSalon.Models.Client
+
+<section class="card mb-3">
+  <div class="card-header">
+    <div class="cardListName">Add Client</div>
+  </div>
+  <div class="card-body">
+    @using (Html.BeginForm())
+    {
+      @Html.LabelFor(model => model.Name)
+      @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+      <input type="submit" value="Add new stylist" class="btn btn-primary mt-3 mb-3" />
+    }
+  </div>
+</section>  

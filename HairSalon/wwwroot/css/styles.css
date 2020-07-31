@@ -1,0 +1,12 @@
+header {
+  text-align: center;
+}
+
+.cardListName {
+  float: left;
+  font-size: 1.5rem;
+}
+
+.cardListButton {
+  float: right
+}

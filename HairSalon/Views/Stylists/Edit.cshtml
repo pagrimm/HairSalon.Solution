@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+@model HairSalon.Models.Stylist
+
+<section class="card mb-3">
+  <div class="card-header">
+    <div class="cardListName">Edit Stylist: @Html.DisplayFor(model => model.Name)</div>
+    <div class="cardListButton">
+      <form action="/stylists/@Model.StylistId" method="post">
+        <button type="submit" class="btn btn-danger">Remove Stylist</button>
+      </form>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="card-text">
+      @using (Html.BeginForm())
+      {
+        @Html.HiddenFor(model => model.StylistId)
+        @Html.LabelFor(model => model.Name)
+        @Html.EditorFor(model => model.Name, new { @class = "form-control" })
+
+        <input type="submit" value="Save" class="btn btn-primary" />
+      }
+    </div>
+  </div>
+</section>
