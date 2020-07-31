@@ -3,7 +3,7 @@
 
 <section class="card mb-3">
   <div class="card-header">
-    <div class="cardListName">Stylist: @Model.Name</div>
+    <div class="cardListName">Stylist: @Html.ActionLink($"{Model.Name}", "Show", "Stylists", new { id = Model.StylistId })</div>
     <div class="cardListButton">
       @using (Html.BeginForm("Destroy", "Stylists", new {id = Model.StylistId}))
       {

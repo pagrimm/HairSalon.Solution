@@ -21,7 +21,7 @@ namespace HairSalon.Controllers
       if (searchQuery != null)
       {
         ViewBag.SearchFlag = 1;
-        List<Stylist> searchList = _db.Stylists.Where(stylist => stylist.Name.Contains(searchQuery)).ToList();
+        List<Stylist> searchList = _db.Stylists.Where(stylist => stylist.Name.ToLower().Contains(searchQuery.ToLower())).ToList();
         return View(searchList);
       }
       else
