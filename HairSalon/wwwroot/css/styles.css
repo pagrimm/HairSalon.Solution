@@ -10,3 +10,7 @@ header {
 .cardListButton {
   float: right
 }
+
+.home-form {
+  display: inline;
+}
