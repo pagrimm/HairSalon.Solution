@@ -1,3 +1,19 @@
 @{
   Layout = "_Layout";
 }
+
+<section class="card mb-3">
+    <div class="card-header">
+      <div class="cardListName">Stylist and Client Management</div>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Welcome to Eu Claire's Salon Stylist and Client Management</h5>
+      <p>Select an option from the navigation bar or add a stylist or client below to get started.</p>
+      <form action="/stylists/new" method="get">
+        <button type="submit" class="btn btn-primary" class="mr-2 ml-2">Add Stylist</button>
+      </form>
+      <form action="/clients/new" method="get">
+        <button type="submit" class="btn btn-primary" class="mr-2 ml-2">Add Client</button>
+      </form>
+    </div>
+  </section>  
