@@ -21,29 +21,19 @@ User Stories
 * Run MySQL by entering `mysql -uroot -pepicodus` in the terminal
 * Enter the following commands to create the necessary database and tables:
 ```
-DROP DATABASE IF EXISTS `best_restaurants`;
-CREATE DATABASE `best_restaurants`;
-USE DATABASE `best_restaurants`;
-CREATE TABLE `cuisines` (
-  `CuisineId` int NOT NULL AUTO_INCREMENT,
+DROP DATABASE IF EXISTS `peter_grimm`;
+CREATE DATABASE `peter_grimm`;
+USE DATABASE `peter_grimm`;
+CREATE TABLE `clients` (
+  `ClientId` int NOT NULL AUTO_INCREMENT,
   `Name` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`CuisineId`)
+  `StylistId` int NOT NULL DEFAULT '0',
+  PRIMARY KEY (`ClientId`)
 );
-CREATE TABLE `restaurants` (
-  `RestaurantId` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `stylists` (
+  `StylistId` int NOT NULL AUTO_INCREMENT,
   `Name` varchar(255) DEFAULT NULL,
-  `Description` varchar(255) DEFAULT NULL,
-  `Address` varchar(255) DEFAULT NULL,
-  `CuisineId` int NOT NULL DEFAULT '0',
-  PRIMARY KEY (`RestaurantId`)
-);
-CREATE TABLE `reviews` (
-  `ReviewId` int NOT NULL AUTO_INCREMENT,
-  `ReviewerName` varchar(255) DEFAULT NULL,
-  `ReviewText` varchar(255) DEFAULT NULL,
-  `Rating` int NOT NULL DEFAULT '0',
-  `RestaurantId` int NOT NULL DEFAULT '0',
-  PRIMARY KEY (`ReviewId`)
+  PRIMARY KEY (`StylistId`)
 );
 ```
 * Clone the GitHub repository by running `git clone https://github.com/pagrimm/BestRestaurants.Solution.git` in the terminal
