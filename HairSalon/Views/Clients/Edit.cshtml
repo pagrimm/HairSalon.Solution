@@ -6,11 +6,12 @@
 
 <section class="card mb-3">
   <div class="card-header">
-    <div class="cardListName">Edit Client: @client.Name</div>
+    <div class="cardListName">Edit Client: @Model.Name</div>
     <div class="cardListButton">
-      <form action="/clients/@client.ClientId" method="post">
+      @using (Html.BeginForm("Destroy", "Clients", new {id = Model.ClientId}))
+      {
         <button type="submit" class="btn btn-danger">Remove Client</button>
-      </form>
+      }
     </div>
   </div>
   <div class="card-body">
@@ -19,7 +20,8 @@
       @Html.HiddenFor(model => model.ClientId)
       @Html.LabelFor(model => model.Name)
       @Html.EditorFor(model => model.Name, new { @class = "form-control" })
-
+      @Html.LabelFor(model => model.Stylist)
+      @Html.DropDownList("StylistId", (IEnumerable<SelectListItem>)ViewBag.StylistId, new { @class = "form-control" })
       <input type="submit" value="Save" class="btn btn-primary" />
     }
   </div>

@@ -15,9 +15,10 @@
     <div class="card-header">
       <div class="cardListName">Stylist: @stylist.Name</div>
       <div class="cardListButton">
-        <form action="/stylists/@stylist.StylistId" method="post">
+        @using (Html.BeginForm("Destroy", "Stylists", new {id = stylist.StylistId}))
+        {
           <button type="submit" class="btn btn-danger">Remove Stylist</button>
-        </form>
+        }
       </div>
     </div>
     <div class="card-body">

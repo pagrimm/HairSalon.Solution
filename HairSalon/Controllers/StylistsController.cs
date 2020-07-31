@@ -57,7 +57,7 @@ namespace HairSalon.Controllers
     [HttpPost]
     public ActionResult Destroy(int id)
     {
-      Stylist thisStylist = _db.Clients.FirstOrDefault(stylist => stylist.StylistId == id);
+      Stylist thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
       _db.Stylists.Remove(thisStylist);
       _db.SaveChanges();
       return RedirectToAction("Index");

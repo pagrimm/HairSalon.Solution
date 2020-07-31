@@ -8,9 +8,10 @@
   <div class="card-header">
     <div class="cardListName">Edit Stylist: @Html.DisplayFor(model => model.Name)</div>
     <div class="cardListButton">
-      <form action="/stylists/@Model.StylistId" method="post">
+      @using (Html.BeginForm("Destroy", "Stylists", new {id = Model.StylistId}))
+      {
         <button type="submit" class="btn btn-danger">Remove Stylist</button>
-      </form>
+      }
     </div>
   </div>
   <div class="card-body">
