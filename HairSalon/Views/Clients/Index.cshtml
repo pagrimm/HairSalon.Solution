@@ -9,20 +9,10 @@
 {
   <p>There are no clients to display, please add a client.</p>
 }
+<form action="/clients/new" method="get">
+  <button type="submit" class="btn btn-primary mb-3">Add New Client</button>
+</form>
 @foreach (Client client in Model)
 {
-  <section class="card mb-3">
-    <div class="card-header">
-      <div class="cardListName">Client: @client.Name</div>
-      <div class="cardListButton">
-        @using (Html.BeginForm("Destroy", "Clients", new {id = client.ClientId}))
-        {
-          <button type="submit" class="btn btn-danger">Remove Client</button>
-        }
-      </div>
-    </div>
-    <div class="card-body">
-      <p>Stylist: @client.Stylist.Name</p>
-    </div>
-  </section>  
+  @Html.Partial("ClientCard", client)
 }

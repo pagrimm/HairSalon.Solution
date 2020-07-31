@@ -1,0 +1,23 @@
+@using HairSalon.Models;
+@model HairSalon.Models.Client;
+
+<section class="card mb-3">
+  <div class="card-header">
+    <div class="cardListName">Client: @Model.Name</div>
+        <div class="cardListButton">
+      @using (Html.BeginForm("Destroy", "Clients", new {id = Model.ClientId}))
+      {
+        <button type="submit" class="btn btn-danger">Remove Client</button>
+      }
+    </div>
+    <div class="cardListButton">
+      @using (Html.BeginForm("Edit", "Clients", new {id = Model.ClientId}, FormMethod.Get))
+      {
+        <button type="submit" class="btn btn-warning mr-3">Edit Client</button>
+      }
+    </div>
+  </div>
+  <div class="card-body">
+    @Html.DisplayNameFor(model => model.Stylist.Name): @Html.DisplayFor(model => model.Stylist.Name)
+  </div>
+</section>

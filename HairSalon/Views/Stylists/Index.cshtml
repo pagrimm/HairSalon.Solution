@@ -9,23 +9,10 @@
 {
   <p>There are no stylists to display, please add a stylist.</p>
 }
+<form action="/stylists/new" method="get">
+  <button type="submit" class="btn btn-primary mb-3">Add New Stylist</button>
+</form>
 @foreach (Stylist stylist in Model)
 {
-  <section class="card mb-3">
-    <div class="card-header">
-      <div class="cardListName">Stylist: @stylist.Name</div>
-      <div class="cardListButton">
-        @using (Html.BeginForm("Destroy", "Stylists", new {id = stylist.StylistId}))
-        {
-          <button type="submit" class="btn btn-danger">Remove Stylist</button>
-        }
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="card-text">
-        <h5 class="card-title">Client List</h5>
-        @Html.Partial("ClientList", stylist)
-      </div>
-    </div>
-  </section>  
+  @Html.Partial("StylistCard", stylist)
 }

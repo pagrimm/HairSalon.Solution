@@ -7,5 +7,5 @@
 }
 @foreach (Client client in Model.Clients)
 {
-  <div><p>@Html.ActionLink($"{client.Name}", "Show", new { id = client.ClientId })</p></div>
+  <div><p>@Html.ActionLink($"{client.Name}", "Show", "Clients", new { id = client.ClientId })</p></div>
 }

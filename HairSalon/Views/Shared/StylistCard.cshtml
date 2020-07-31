@@ -1,0 +1,26 @@
+@using HairSalon.Models;
+@model HairSalon.Models.Stylist;
+
+<section class="card mb-3">
+  <div class="card-header">
+    <div class="cardListName">Stylist: @Model.Name</div>
+    <div class="cardListButton">
+      @using (Html.BeginForm("Destroy", "Stylists", new {id = Model.StylistId}))
+      {
+        <button type="submit" class="btn btn-danger">Remove Stylist</button>
+      }
+    </div>
+    <div class="cardListButton">
+      @using (Html.BeginForm("Edit", "Stylists", new {id = Model.StylistId}, FormMethod.Get))
+      {
+        <button type="submit" class="btn btn-warning mr-3">Edit Stylist</button>
+      }
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="card-text">
+      <h5 class="card-title">Client List</h5>
+      @Html.Partial("ClientList", Model)
+    </div>
+  </div>
+</section>
