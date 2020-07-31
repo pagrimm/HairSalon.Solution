@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HairSalon.Controllers
 {
@@ -15,10 +16,25 @@ namespace HairSalon.Controllers
       _db = db;
     }
 
-    public ActionResult Index()
+    public ActionResult Index(string searchQuery = null)
     {
-      List<Stylist> allStylists = _db.Stylists.ToList();
-      return View(allStylists);
+      if (searchQuery != null)
+      {
+        ViewBag.SearchFlag = 1;
+        List<Stylist> searchList = _db.Stylists.Where(stylist => stylist.Name.Contains(searchQuery)).ToList();
+        return View(searchList);
+      }
+      else
+      {
+        ViewBag.SearchFlag = 0;
+        List<Stylist> allStylists = _db.Stylists.ToList();
+        return View(allStylists);
+      }
+    }
+
+    public ActionResult SearchResults (List<Stylist> inputList)
+    {
+      return View(inputList);
     }
 
     public ActionResult New()
