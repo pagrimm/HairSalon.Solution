@@ -4,7 +4,7 @@
 
 ## Description
 
-Weekly project independent for Epicodus, an MVC web application to track stylists and their clients for a Salon. Designed to showcase my knowledge and skills with MySQL and the Entity Framework.
+Weekly independent project for Epicodus, an MVC web application to track stylists and their clients for a Salon. Designed to showcase my knowledge and skills with MySQL and the Entity Framework.
 
 ## Specifications
 User Stories
