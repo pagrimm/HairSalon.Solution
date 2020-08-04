@@ -23,7 +23,7 @@ User Stories
 ```
 DROP DATABASE IF EXISTS `peter_grimm`;
 CREATE DATABASE `peter_grimm`;
-USE DATABASE `peter_grimm`;
+USE `peter_grimm`;
 CREATE TABLE `clients` (
   `ClientId` int NOT NULL AUTO_INCREMENT,
   `Name` varchar(255) DEFAULT NULL,
